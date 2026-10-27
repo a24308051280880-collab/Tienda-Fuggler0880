@@ -86,7 +86,7 @@
         .stats div { margin-bottom: 4px; color: #aaa; }
         .stats span { color: #ff3300; font-weight: 900; }
 
-        /* === FORMULARIO DE COMPRA === */
+        /* === FORMULARIO DE INICIO SESIÓN === */
         .form-container { background: #111; border: 4px solid #000; border-radius: 12px; padding: 30px; box-shadow: 8px 8px 0 #ff3300; max-width: 600px; margin: 0 auto; }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #ffee00; text-transform: uppercase; font-size: 0.9rem; }
@@ -99,14 +99,14 @@
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #ff3300; background: #2b2b2b; }
         
         /* Botón de envío */
-        .btn-compra {
+        .btn-inicio {
             background: #ff3300; color: #fff; font-family: Impact, sans-serif; font-size: 1.5rem; padding: 12px 30px;
             border: 3px solid #000; border-radius: 8px; cursor: pointer; width: 100%; text-transform: uppercase;
             box-shadow: 4px 4px 0 #ffee00; transition: 0.2s ease;
         }
-        .btn-compra:hover { background: #ffee00; color: #000; box-shadow: 4px 4px 0 #ff3300; transform: scale(1.02); }
+        .btn-inicio:hover { background: #ffee00; color: #000; box-shadow: 4px 4px 0 #ff3300; transform: scale(1.02); }
         
-        /* Contenedor dinámico de alertas de respuesta de la compra */
+        /* Contenedor dinámico de alertas de respuesta de inicio de sesión*/
         #mensaje-resultado { margin-top: 15px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-weight: bold; }
 
         /* === PIE DE PÁGINA (FOOTER) === */
@@ -421,7 +421,7 @@
             </div>
         </section>
 
-        <!-- ================= SECCIÓN 5: FORMULARIO DE ADOPCIÓN / COMPRA ================= -->
+        <!-- ================= SECCIÓN 5: FORMULARIO DE INICIO SESIÓN ================= -->
         <section id="formulario-inicio-sesión" class="section-block">
             <h2 class="section-title">Formulario de Inicio Sesión</h2>
             <div class="form-container">
@@ -445,7 +445,7 @@
 
                     <div class="form-group">
                         <label for="direccion">Contraseña:</label>
-                        <textarea id="direccion" name="direccion" rows="3" placeholder="Calle, Número, Colonia, Ciudad..." required></textarea>
+                        <textarea id="direccion" name="direccion" rows="3" placeholder="Ejemplo_12..." required></textarea>
                     </div>
 
                     <div class="form-group">
@@ -454,7 +454,7 @@
                     </div>
 
                     <!-- Botón para enviar el formulario -->
-                    <button type="submit" class="btn-compra">Inicar Sesión<button>
+                    <button type="submit" class="btn-inicio">Inicar Sesión<button>
                 </form>
                 
                 <!-- Caja de respuesta después de procesar la solicitud -->
