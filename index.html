@@ -11,6 +11,11 @@
             padding: 0;
         }
 
+        /* Desplazamiento suave al hacer clic en los enlaces internos */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #E8C68E;
             background-image: radial-gradient(#222 10%, transparent 11%);
@@ -57,6 +62,9 @@
             padding: 10px 0;
             margin-top: 20px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav ul {
@@ -91,11 +99,30 @@
             transform: scale(1.05) rotate(-1deg);
         }
 
+        /* Estilos de las Secciones */
+        .section-block {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            scroll-margin-top: 80px; /* Margen para no quedar tapado por el nav pegajoso */
+        }
+
+        .section-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.2rem;
+            color: #ffee00;
+            text-shadow: 3px 3px 0px #000;
+            background-color: #111;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 3px solid #000;
+            margin-bottom: 25px;
+            transform: rotate(-1deg);
+        }
+
         /* Contenedor principal de tarjetas */
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -153,10 +180,30 @@
         }
 
         .card p.desc {
-            color: #ddd;
+            color: #333;
             font-size: 0.9rem;
             line-height: 1.4;
             margin-bottom: 15px;
+        }
+
+        .stats {
+            width: 100%;
+            background-color: #0d0d0d;
+            border: 2px dashed #ffee00;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            text-align: left;
+        }
+
+        .stats div {
+            margin-bottom: 4px;
+            color: #aaa;
+        }
+
+        .stats span {
+            color: #ff3300;
+            font-weight: 900;
         }
 
         /* Pie de página */
@@ -203,60 +250,309 @@
         <br>
         <div class="tagline">Funny ugly monster</div>
         
-        <!-- Barra de Navegación -->
+        <!-- Barra de Navegación con enlaces de anclaje -->
         <nav>
             <ul>
-                <li><a href="#coleccion-completa">Coleccion Completa</a></li>
+                <li><a href="#coleccion-completa">Colección Completa</a></li>
                 <li><a href="#monstruos-inadaptados">Monstruos Inadaptados</a></li>
                 <li><a href="#mascotas-feas">Mascotas Feas</a></li>
-                <li><a href="#coleccion-nueva">Coleccion Nueva</a></li>
+                <li><a href="#coleccion-nueva">Colección Nueva</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
+    <main>
 
-        <div class="card">
-            <img src="fuggler1.jpg" alt="Gaptooth Weirdo">
-            <h2>Gaptooth Weirdo</h2>
-            <span class="series">Serie: Monstruos Inadaptados</span>
-            <p class="desc"> Es un terrible duende del caos que vive para las travesuras y el caos, así que no te dejes engañar por el ojo abierto, el pelaje esponjoso y la sonrisa llena de dientes.</p>
-            <div class="stats">
-                <div>Pelaje: <span>Lila y Borgoña</span></div>
-                <div>Velocidad de pedo: <span>Rafaga</span></div>
-                <div>Consistencia de Flema: <span>Humedo</span></div>
-            </div>
-        </div>
+        <!-- SECCIÓN: Colección Completa -->
+        <section id="coleccion-completa" class="section-block">
+            <h2 class="section-title">Colección Completa</h2>
+            <div class="container">
+                <div class="card">
+                    <img src="fuggler2.jpg" alt="Suspicious Fox">
+                    <h2>Suspicious Fox</h2>
+                    <span class="series">Serie: Originals</span>
+                    <p class="desc">Este monstruo tiene una pasión problemática... Robando. El ladrón suele encontrarse dentro de bolsos y mochilas, saqueando, y robando todo lo que puede conseguir.</p>
+                    <div class="stats">
+                        <div>Número: <span>4</span></div>
+                        <div>Pelaje: <span>Fieltro Azul</span></div>
+                        <div>Velocidad de pedo: <span>Sigilo</span></div>
+                        <div>Consistencia de Flema: <span>Apestoso</span></div>
+                    </div>
+                </div>
 
-        <div class="card">
-            <img src="fuggler2.jpg" alt="Suspicious Fox">
-            <h2>Suspicious Fox</h2>
-            <span class="series">Serie: Originals</span>
-            <p class="desc">Este monstruo tiene una pasión problemática... Robando. El ladrón suele encontrarse dentro de bolsos y mochilas, saqueando, y robando todo lo que puede conseguir.</p>
-            <div class="stats">
-                <div>Pelaje: <span>Fieltro Azul</span></div>
-                <div>Velocidad de pedo: <span>Sigilo</span></div>
-                <div>Consistencia de Flema: <span>Apestoso</span></div>
-            </div>
-        </div>
+                <div class="card">
+                    <img src="fuggler4.jpg" alt="Oogah Boogah">
+                    <h2>Oogah Boogah</h2>
+                    <span class="series">Serie: Originals</span>
+                    <p class="desc"> Era el disfraz perfecto para escapar del laboratorio y empezar a causar estragos en la población completamente desprevenida.</p>
+                    <div class="stats">
+                        <div>Número: <span>53</span></div>
+                        <div>Pelaje: <span>Arcoíris de pelo largo/span></div>
+                        <div>Velocidad de pedo: <span>Humedo</span></div>
+                        <div>Consistencia de Flema: <span>Espesa</span></div>
+                    </div>
+                </div>
 
-        <div class="card">
-            <img src="fuggler3.jpg" alt="Mr. Buttons">
-            <h2>Mr. Buttons</h2>
-            <span class="series">Serie: Grump</span>
-            <p class="desc">Fiestero por dentro y por fuera, siempre está dispuesto a hacer el payaso y a menudo se le puede encontrar tirando cáscaras de plátano en las aceras para que los transeúntes inocentes se resbalen.</p>
-            <div class="stats">
-                <div>Pelaje: <span>Rosa de pelo largo</span></div>
-                <div>Velocidad de pedo: <span>Rafaga</span></div>
-                <div>Consistencia de Flema: <span>Liquida</span></div>
+                <div class="card">
+                    <img src="fuggler5.jpg" alt="Shameless Goof">
+                    <h2>Shameless Goof</h2>
+                    <span class="series">Serie: Baby Fugg</span>
+                    <p class="desc"> Te lanzará una sonrisa pícara y te mostrará su único mosqueteador antes de desaparecer en el espacio más pequeño, para infiltrarse en áreas de tu vida que ni siquiera sabías que existían, dejando un rastro de caos a su paso. Prepárate para las mega travesuras que traen estas micro amenazas.</p>
+                    <div class="stats">
+                        <div>Pelaje: <span>Verde de pelo largo</span></div>
+                        <div>Velocidad de pedo: <span>Silenciosa pero violenta</span></div>
+                        <div>Consistencia de Flema: <span>Gomita</span></div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div class="card">
+                    <img src="fuggler6.jpg" alt="Squidge">
+                    <h2>Squidge</h2>
+                    <span class="series">Serie: Inadaptados de Laboratorio</span>
+                    <p class="desc"> Este sinvergüenza tonto fue rociado con manchas de productos químicos por todo su pelaje después de morder las tuberías.</p>
+                    <div class="stats">
+                        <div>Número: <span>51</span></div>
+                        <div>Pelaje: <span>Vellón moteado morado</span></div>
+                        <div>Velocidad de pedo: <span>Sobresagrado</span></div>
+                        <div>Consistencia de Flema: <span>Liquida</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                    <img src="fuggler7.jpg" alt="Sir Belch">
+                    <h2>Sir Belch</h2>
+                    <span class="series">Serie: Inadaptados de Laboratorio</span>
+                    <p class="desc">Los vapores han hecho que esta amenaza parezca psicodélica y hipnótica, pero no te dejes engañar: Está completamente centrada en arruinarte la vida.</p>
+                    <div class="stats">
+                        <div>Número: <span>49</span></div>
+                        <div>Pelaje: <span>Forro polar teñido azul</span></div>
+                        <div>Velocidad de pedo: <span>Sigilo</span></div>
+                        <div>Consistencia de Flema: <span>Liquida</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                    <img src="fuggler8.jpg" alt="Munch Munch">
+                    <h2>Munch Munch</h2>
+                    <span class="series">Serie: Inadaptados de Laboratorio</span>
+                    <p class="desc">Este bicho raro está programado para causar caos. Solo tienes que mirar a sus pequeños ojos y verás que no hay pensamientos en esa cabeza, solo caos.</p>
+                    <div class="stats">
+                        <div>Número: <span>48</span></div>
+                        <div>Pelaje: <span>Peluda tipo Tiee Dye</span></div>
+                        <div>Velocidad de pedo: <span>Tornado</span></div>
+                        <div>Consistencia de Flema: <span>Gomita</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Monstruos Inadaptados -->
+        <section id="monstruos-inadaptados" class="section-block">
+            <h2 class="section-title">Monstruos Inadaptados</h2>
+            <div class="container">
+                <div class="card">
+                    <img src="fuggler1.jpg" alt="Gaptooth Weirdo">
+                    <h2>Gaptooth Weirdo</h2>
+                    <span class="series">Serie: Monstruos Inadaptados</span>
+                    <p class="desc"> Es un terrible duende del caos que vive para las travesuras y el caos, así que no te dejes engañar por el ojo abierto, el pelaje esponjoso y la sonrisa llena de dientes.</p>
+                    <div class="stats">
+                        <div>Número: <span>185</span></div>
+                        <div>Pelaje: <span>Lila/Borgoña</span></div>
+                        <div>Velocidad de pedo: <span>Rafaga</span></div>
+                        <div>Consistencia de Flema: <span>Humedo</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler3.jpg" alt="Mr Screech">
+                    <h2>Mr Screech</h2>
+                    <span class="series">Serie: Monstruos Inadaptados</span>
+                    <p class="desc">Este Fuggler no pudo elegir su color favorito, así que optó por ambos. Una mezcla de colores drásticos de un Fuggler, vive para crear caos.</p>
+                    <div class="stats">
+                        <div>Número: <span>186</span></div>
+                        <div>Pelaje: <span>Rosa/Azul</span></div>
+                        <div>Velocidad de pedo: <span>Huevo Revuelto</span></div>
+                        <div>Consistencia de Flema: <span>Pulverizador</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler9.jpg" alt="Munch Tooth">
+                    <h2>Munch Tooth</h2>
+                    <span class="series">Serie: Monstruos Inadaptados</span>
+                    <p class="desc">Un maestro multicolor de traviesas, esta mezcla de verde, amarillo y rosa Fugglers vive para traer color y caos a quien decida hacerse amigo de ella. No te dejes llevar por su cansancio y ojos entrecerrados: está listo, dispuesto y, por desgracia, capaz de hacer un gran desastre.</p>
+                    <div class="stats">
+                        <div>Número: <span>193</span></div>
+                        <div>Pelaje: <span>Neon Green/Multi</span></div>
+                        <div>Velocidad de pedo: <span>Atronadora</span></div>
+                        <div>Consistencia de Flema: <span>Pegajosa</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler10.jpg" alt="Wide Eyed Boogah">
+                    <h2>Wide Eyed Boogah</h2>
+                    <span class="series">Serie: Monstruos Inadaptados</span>
+                    <p class="desc"></p>
+                    <div class="stats">
+                        <div>Número: <span>184</span></div>
+                        <div>Pelaje: <span>Negro/Blanco</span></div>
+                        <div>Velocidad de pedo: <span>Silenciosa pero Violenta</span></div>
+                        <div>Consistencia de Flema: <span>Dentada</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler11.jpg" alt="Grinneroo McGoo">
+                    <h2>Grinneroo McGoo</h2>
+                    <span class="series">Serie: Monstruos Inadaptados</span>
+                    <p class="desc"> Es una especie de Fuggler verde enfermizo mezclado con un desastre multicolor, y ahí es donde empieza el caos. Podría ser perfectamente el amigo de tus sueños (siempre que sean pesadillas).</p>
+                    <div class="stats">
+                        <div>Número: <span>191</span></div>
+                        <div>Pelaje: <span>Multi/Verde</span></div>
+                        <div>Velocidad de pedo: <span>Rafaga</span></div>
+                        <div>Consistencia de Flema: <span>Grueso</span></div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- SECCIÓN: Mascotas Feas -->
+        <section id="mascotas-feas" class="section-block">
+            <h2 class="section-title">Mascotas Feas</h2>
+            <div class="container">
+                <div class="card">
+                    <img src="fuggler12.jpg" alt="Cheeky Chunky">
+                    <h2>Cheeky Chunky</h2>
+                    <span class="series">Serie:Mascotas Feas </span>
+                    <p class="desc">Un Fuggler multicolor y diabólico, no desea nada más que inyectar una buena dosis de caos en tu vida. Y con su enorme lengua siempre asomando, es casi como si se estuviera burlándose de ti cada vez que la miras.</p>
+                    <div class="stats">
+                        <div>Número: <span>173</span></div>
+                        <div>Pelaje: <span>Remolino multicolor</span></div>
+                        <div>Velocidad de pedo: <span>Mojado</span></div>
+                        <div>Consistencia de Flema: <span>Grueso</span></div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="fuggler13.jpg" alt="Reek-O">
+                    <h2>Reek-O</h2>
+                    <span class="series">Serie: Mascotas Feas</span>
+                    <p class="desc">Este Fuggler trae caos y malestar dondequiera que encuentra una bandeja de arena. Y si no encuentra una bandeja de arena, hará su trabajo igualmente. A diferencia de otros gatos, apenas le importa su higiene personal.</p>
+                    <div class="stats">
+                        <div>Número: <span>175</span></div>
+                        <div>Pelaje: <span>Multicolor</span></div>
+                        <div>Velocidad de pedo: <span>Tornado</span></div>
+                        <div>Consistencia de Flema: <span>Humedo</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler14.jpg" alt="Chezee">
+                    <h2>Chezee</h2>
+                    <span class="series">Serie: Mascotas Feas</span>
+                    <p class="desc">Este Fuggler salta más de lo que ronronea. Un felino demoníaco que no desea nada más que arrancar tus cortinas, ensuciar la alfombra y rascar, rascar, rascar.</p>
+                    <div class="stats">
+                        <div>Número: <span>179</span></div>
+                        <div>Pelaje: <span>Multicolo</span></div>
+                        <div>Velocidad de pedo: <span>Sobresagrado</span></div>
+                        <div>Consistencia de Flema: <span>Lodoso</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Colecciones Especiales -->
+        <section id="colecciones-especiales" class="section-block">
+            <h2 class="section-title">Colecciones Especiales</h2>
+            <div class="container">
+                <div class="card">
+                    <img src="fuggler15.jpg" alt="Leonardo">
+                    <h2>Leonardo</h2>
+                    <span class="series">Serie: Colección Especial</span>
+                    <p class="desc"> Leonardo está armado con su katana listo para luchar contra el mal junto a sus tres hermanos.  Normalmente se le puede encontrar a Leonardo intentando someter a sus hermanos malhechores y no rehúye actuar con la misma picardía para engañarlos y que sigan sus órdenes.</p>
+                    <div class="stats">
+                        <div>Colección: <span>Tortugas Ninja</span></div>
+                        <div>Pelaje: <span>Fieltro Verde</span></div>
+                        <div>Velocidad de pedo: <span>Sobresagrado</span></div>
+                        <div>Consistencia de Flema: <span>Grueso</span></div>
+                    </div>
+                </div>
+
+                  <div class="card">
+                    <img src="fuggler16.jpg" alt="Patrick">
+                    <h2>Patrick</h2>
+                    <span class="series">Serie: Colección Especial</span>
+                    <p class="desc">Esta ingenua estrella de mar rosa tiene un apetito insaciable por las travesuras. Su actitud pausada y relajada desmiente su talento para causar caos, ya sea robando aperitivos o orquestando bromas elaboradas que dejan desconcertados a los transeúntes.</p>
+                    <div class="stats">
+                        <div>Colección: <span>Bob Esponja</span></div>
+                        <div>Pelaje: <span>Tornado</span></div>
+                        <div>Velocidad de pedo: <span>Burbujeante</span></div>
+                        <div>Consistencia de Flema: <span>Espesa</span></div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="fuggler17.jpg" alt="Joker">
+                    <h2>Joker</h2>
+                    <span class="series">Serie: Colección Especial</span>
+                    <p class="desc">Ya sea que esté contando bromas o cometiendo crímenes, querrás vigilar a este monstruo antes de convertirte en su próximo objetivo.</p>
+                    <div class="stats">
+                        <div>Colección: <span>DC</span></div>
+                        <div>Pelaje: <span>Vellon Blanco</span></div>
+                        <div>Velocidad de pedo: <span>Trmbon</span></div>
+                        <div>Consistencia de Flema: <span>Liquida</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler18.jpg" alt="Raya">
+                    <h2>Raya</h2>
+                    <span class="series">Serie: Colección Especial</span>
+                    <p class="desc">este monstruo pretende causar estragos, pero necesita mantenerse alejado de la luz brillante para continuar su reinado de terror; prefiere gastar sus bromas bajo la cobertura de la oscuridad.</p>
+                    <div class="stats">
+                        <div>Colección: <span> Gremlin</span></div>
+                        <div>Pelaje: <span>Escamas Verdes</span></div>
+                        <div>Velocidad de pedo: <span>Tornado</span></div>
+                        <div>Consistencia de Flema: <span>Espumoso</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler19.jpg" alt="Gollum">
+                    <h2>Gollum</h2>
+                    <span class="series">Serie: Colección Especial</span>
+                    <p class="desc">Curiosamente para este Fuggler, no tuvo que esforzarse mucho con su atuendo. Sí, con ropa marchita y el pelo ralado, es el guía perfecto para guiarte</p>
+                    <div class="stats">
+                        <div>Colección: <span> El Señor de los Anillos</span></div>
+                        <div>Pelaje: <span>Beige</span></div>
+                        <div>Velocidad de pedo: <span>Sigilo</span></div>
+                        <div>Consistencia de Flema: <span>Grueso</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="fuggler20.jpg" alt="Grin Grin">
+                    <h2>Grin Grin</h2>
+                    <span class="series">Serie: Colección Especial</span>
+                    <p class="desc"> Es una tortura de la más alta magnitud, infligida por la lentitud deliberada de esta criatura astuta.</p>
+                    <div class="stats">
+                        <div>Coleccion: Gold Fuggler<span></span></div>
+                        <div>Pelaje: <span>Forro polar dorado y blanco con estampado de leopardo</span></div>
+                        <div>Velocidad de pedo: <span>Huevop Revuelto</span></div>
+                        <div>Consistencia de Flema: <span>Apestoso</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <footer>
-        <p><strong>FUGGLER</strong> &copy;  Peluches feos con dientes reales de humano y agujero de botón en el trasero.</p>
-        <p>Quiñones Rios Iris Marina 0880     5-J </p>
+        <p><strong>FUGGLER</strong> &copy; Peluches feos con dientes reales de humano y agujero de botón en el trasero.</p>
+        <p>Quiñones Rios Iris Marina 0880 5-J</p>
         <div class="footer-links">
             <a href="#">Términos y Caos</a> | 
             <a href="#">Adopciones</a> | 
