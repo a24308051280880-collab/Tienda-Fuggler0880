@@ -18,7 +18,7 @@
         }
 
         /* === ENCABEZADO (HEADER) === */
-        header { text-align: center; padding: 40px 20px 20px; background: #fff; border-bottom: 4px solid #000; }
+        header { text-align: center; padding: 40px 20px 20px; background: #8A603B; border-bottom: 4px solid #000; }
         
         /* Título del logo con fuente caricaturesca del sistema */
         .logo {
@@ -77,7 +77,7 @@
         .card:nth-child(odd) { transform: rotate(1deg); }
         
         .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border: 3px solid #000; background: #2b2b2b; margin-bottom: 15px; }
-        .card h2 { font-family: Impact, sans-serif; font-size: 1.8rem; color: #ff3300; text-shadow: 1px 1px 0 #000; margin-bottom: 5px; }
+        .card h2 { font-family: Impact, sans-serif; font-size: 1.8rem; color: #FFFFFF; text-shadow: 1px 1px 0 #000; margin-bottom: 5px; }
         .card .series { background: #333; color: #fff; font-size: 0.8rem; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700; }
         .card p.desc { color: #333; font-size: 0.9rem; line-height: 1.4; margin-bottom: 15px; }
         
@@ -131,7 +131,7 @@
                 <li><a href="#monstruos-inadaptados">Monstruos Inadaptados</a></li>
                 <li><a href="#mascotas-feas">Mascotas Feas</a></li>
                 <li><a href="#colecciones-especiales">Colecciones Especiales</a></li>
-                <li><a href="#formulario-compra">¡Adoptar / Comprar!</a></li>
+                <li><a href="#formulario-compra">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -422,37 +422,10 @@
         </section>
 
         <!-- ================= SECCIÓN 5: FORMULARIO DE ADOPCIÓN / COMPRA ================= -->
-        <section id="formulario-compra" class="section-block">
-            <h2 class="section-title">Formulario de Adopción / Compra</h2>
+        <section id="formulario-inicio-sesión" class="section-block">
+            <h2 class="section-title">Formulario de Inicio Sesión</h2>
             <div class="form-container">
                 <form id="compraForm">
-                    <!-- Selección de personaje -->
-                    <div class="form-group">
-                        <label for="fuggler_select">Selecciona tu Fuggler:</label>
-                        <select id="fuggler_select" name="fuggler" required>
-                            <option value="">-- Escoge un monstruo --</option>
-                            <option value="Suspicious Fox">Suspicious Fox</option>
-                            <option value="Oogah Boogah">Oogah Boogah</option>
-                            <option value="Shameless Goof">Shameless Goof</option>
-                            <option value="Squidge">Squidge</option>
-                            <option value="Sir Belch">Sir Belch</option>
-                            <option value="Munch Munch">Munch Munch</option>
-                            <option value="Gaptooth Weirdo">Gaptooth Weirdo</option>
-                            <option value="Mr Screech">Mr Screech</option>
-                            <option value="Munch Tooth">Munch Tooth</option>
-                            <option value="Wide Eyed Boogah">Wide Eyed Boogah</option>
-                            <option value="Grinneroo McGoo">Grinneroo McGoo</option>
-                            <option value="Cheeky Chunky">Cheeky Chunky</option>
-                            <option value="Reek-O">Reek-O</option>
-                            <option value="Chezee">Chezee</option>
-                            <option value="Leonardo">Leonardo</option>
-                            <option value="Patrick">Patrick</option>
-                            <option value="Joker">Joker</option>
-                            <option value="Raya">Raya</option>
-                            <option value="Gollum">Gollum</option>
-                            <option value="Grin Grin">Grin Grin</option>
-                        </select>
-                    </div>
 
                     <!-- Campos con datos del usuario -->
                     <div class="form-group">
@@ -476,7 +449,7 @@
                     </div>
 
                     <!-- Botón para enviar el formulario -->
-                    <button type="submit" class="btn-compra">¡Comprar Monstruo!</button>
+                    <button type="submit" class="btn-compra">Inicar Sesión<button>
                 </form>
                 
                 <!-- Caja de respuesta después de procesar la solicitud -->
@@ -488,7 +461,7 @@
 
     <!-- ================= PIE DE PÁGINA ================= -->
     <footer>
-        <p><strong>FUGGLER</strong> &copy; Peluches feos con dientes reales de humano y agujero de botón en el trasero.</p>
+        <p><strong>FUGGLER</strong> Peluches feos con dientes reales de humano y agujero de botón en el trasero.</p>
         <p>Quiñones Rios Iris Marina 0880 5-J</p>
         <div class="footer-links">
             Términos y Caos | Adopciones | Contacto
