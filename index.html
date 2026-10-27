@@ -4,266 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fuggler - Funny Ugly Monsters</title>
+    
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Desplazamiento suave al hacer clic en los enlaces internos */
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* === ESTILOS GENERALES Y REINICIO (RESET) === */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; } /* Desplazamiento suave al usar anclas del menú */
         body {
-            background-color: #E8C68E;
-            background-image: radial-gradient(#222 10%, transparent 11%);
-            background-size: 15px 15px;
-            color: #ffffff;
-            font-family: 'Rubik', sans-serif;
+            /* Fondo con patrón de puntos y color café/crema */
+            background: #E8C68E radial-gradient(#222 10%, transparent 11%) 0 0 / 15px 15px;
+            color: #fff;
+            font-family: 'Segoe UI', Impact, Arial, sans-serif;
             padding-bottom: 50px;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 40px 20px 20px 20px;
-        }
-
+        /* === ENCABEZADO (HEADER) === */
+        header { text-align: center; padding: 40px 20px 20px; background: #fff; border-bottom: 4px solid #000; }
+        
+        /* Título del logo con fuente caricaturesca del sistema */
         .logo {
-            font-family: 'Copperplate', cursive;
-            font-size: 4rem;
-            color: #000000;
-            text-shadow: 4px 4px 0px #404040, 8px 8px 0px #000000;
-            display: inline-block;
-            transform: rotate(-3deg);
-            margin-bottom: 10px;
-        }
-
-        .tagline {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+            font-size: 5rem;
             color: #000;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background-color: #ffffff;
+            text-shadow: 3px 3px 0 #ffee00, 6px 6px 0 #000;
             display: inline-block;
-            padding: 5px 15px;
-            transform: rotate(1deg);
-            font-weight: 900;
-            border: 2px solid #000;
+            transform: rotate(-3deg); /* Inclinación de estilo cómic */
+            margin-bottom: 10px;
+            letter-spacing: 3px;
         }
 
-        /* Barra de Navegación */
+        /* Etiqueta / Subtítulo bajo el logo */
+        .tagline {
+            color: #000; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;
+            background: #ffee00; display: inline-block; padding: 5px 15px;
+            transform: rotate(1deg); font-weight: 900; border: 2px solid #000;
+        }
+
+        /* === BARRA DE NAVEGACIÓN (STICKY NAV) === */
         nav {
-            background-color: #111;
-            border-top: 3px solid #000000;
-            border-bottom: 3px solid #000000;
-            padding: 10px 0;
-            margin-top: 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: #111; border-block: 3px solid #000; padding: 10px 0; margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); position: sticky; top: 0; z-index: 100;
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 0 10px;
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 0 10px; }
+        nav a {
+            color: #fff; text-decoration: none; font-weight: 900; font-size: 1rem; text-transform: uppercase;
+            padding: 8px 16px; background: #222; border: 2px solid #fff; border-radius: 6px;
+            display: inline-block; transition: 0.2s ease; box-shadow: 3px 3px 0 #000;
         }
+        /* Efecto hover interactivo en los botones del menú */
+        nav a:hover { background: #ff3300; box-shadow: 3px 3px 0 #ffee00; transform: scale(1.05) rotate(-1deg); }
 
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1rem;
-            text-transform: uppercase;
-            padding: 8px 16px;
-            background-color: #222;
-            border: 2px solid #ffffff;
-            border-radius: 6px;
-            display: inline-block;
-            transition: all 0.2s ease;
-            box-shadow: 3px 3px 0px #000000;
-        }
-
-        nav ul li a:hover {
-            background-color: #ff3300;
-            color: #fff;
-            border-color: #fff;
-            box-shadow: 3px 3px 0px #ffee00;
-            transform: scale(1.05) rotate(-1deg);
-        }
-
-        /* Estilos de las Secciones */
-        .section-block {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-            scroll-margin-top: 80px; /* Margen para no quedar tapado por el nav pegajoso */
-        }
-
+        /* === ESTRUCTURA DE SECCIONES === */
+        .section-block { max-width: 1100px; margin: 50px auto; padding: 0 20px; scroll-margin-top: 80px; }
+        
+        /* Títulos estilo insignia para cada categoría */
         .section-title {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 2.2rem;
-            color: #ffee00;
-            text-shadow: 3px 3px 0px #000;
-            background-color: #111;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 8px;
-            border: 3px solid #000;
-            margin-bottom: 25px;
-            transform: rotate(-1deg);
+            font-family: Impact, sans-serif; font-size: 2.2rem; color: #ffee00; text-shadow: 3px 3px 0 #000;
+            background: #111; display: inline-block; padding: 8px 20px; border-radius: 8px;
+            border: 3px solid #000; margin-bottom: 25px; transform: rotate(-1deg);
         }
 
-        /* Contenedor principal de tarjetas */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+        /* Rejilla responsive para las tarjetas de productos */
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
-        /* Tarjeta estilo Fuggler */
+        /* === TARJETAS DE PRODUCTOS (CARDS) === */
         .card {
-            background-color: #cccccc;
-            border: 4px solid #a3a3a3;
-            border-radius: 10px;
-            padding: 15px;
-            position: relative;
-            box-shadow: 8px 8px 0px #4F4B4B;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.2s ease;
+            background: #ccc; border: 4px solid #a3a3a3; border-radius: 10px; padding: 15px;
+            box-shadow: 8px 8px 0 #4F4B4B; display: flex; flex-direction: column; align-items: center;
+            text-align: center; transition: transform 0.2s ease;
         }
+        /* Alterna ligera rotación para dar aspecto desenfadado */
+        .card:nth-child(even) { transform: rotate(-1deg); }
+        .card:nth-child(odd) { transform: rotate(1deg); }
+        
+        .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border: 3px solid #000; background: #2b2b2b; margin-bottom: 15px; }
+        .card h2 { font-family: Impact, sans-serif; font-size: 1.8rem; color: #ff3300; text-shadow: 1px 1px 0 #000; margin-bottom: 5px; }
+        .card .series { background: #333; color: #fff; font-size: 0.8rem; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700; }
+        .card p.desc { color: #333; font-size: 0.9rem; line-height: 1.4; margin-bottom: 15px; }
+        
+        /* Caja oscura con características/estadísticas del producto */
+        .stats { width: 100%; background: #0d0d0d; border: 2px dashed #ffee00; padding: 10px; border-radius: 6px; font-size: 0.8rem; text-align: left; }
+        .stats div { margin-bottom: 4px; color: #aaa; }
+        .stats span { color: #ff3300; font-weight: 900; }
 
-        .card:nth-child(even) {
-            transform: rotate(-1deg);
+        /* === FORMULARIO DE COMPRA === */
+        .form-container { background: #111; border: 4px solid #000; border-radius: 12px; padding: 30px; box-shadow: 8px 8px 0 #ff3300; max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #ffee00; text-transform: uppercase; font-size: 0.9rem; }
+        
+        /* Estilos de los inputs, select y textarea */
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 12px; border: 3px solid #ffee00; border-radius: 6px; background: #222;
+            color: #fff; font-size: 1rem; outline: none;
         }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #ff3300; background: #2b2b2b; }
+        
+        /* Botón de envío */
+        .btn-compra {
+            background: #ff3300; color: #fff; font-family: Impact, sans-serif; font-size: 1.5rem; padding: 12px 30px;
+            border: 3px solid #000; border-radius: 8px; cursor: pointer; width: 100%; text-transform: uppercase;
+            box-shadow: 4px 4px 0 #ffee00; transition: 0.2s ease;
+        }
+        .btn-compra:hover { background: #ffee00; color: #000; box-shadow: 4px 4px 0 #ff3300; transform: scale(1.02); }
+        
+        /* Contenedor dinámico de alertas de respuesta de la compra */
+        #mensaje-resultado { margin-top: 15px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-weight: bold; }
 
-        .card:nth-child(odd) {
-            transform: rotate(1deg);
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 3px solid #000;
-            background-color: #2b2b2b;
-            margin-bottom: 15px;
-        }
-
-        .card h2 {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 1.8rem;
-            color: #ffee00;
-            margin-bottom: 5px;
-        }
-
-        .card .series {
-            background-color: #333;
-            color: #fff;
-            font-size: 0.8rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .card p.desc {
-            color: #333;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            margin-bottom: 15px;
-        }
-
-        .stats {
-            width: 100%;
-            background-color: #0d0d0d;
-            border: 2px dashed #ffee00;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            text-align: left;
-        }
-
-        .stats div {
-            margin-bottom: 4px;
-            color: #aaa;
-        }
-
-        .stats span {
-            color: #ff3300;
-            font-weight: 900;
-        }
-
-        /* Pie de página */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            background-color: #111;
-            border-top: 4px solid #ff3300;
-            color: #bbb;
-            font-size: 0.9rem;
-        }
-
-        footer strong {
-            color: #ffee00;
-        }
-
-        footer p {
-            margin-bottom: 8px;
-        }
-
-        .footer-links {
-            margin-top: 15px;
-        }
-
-        .footer-links a {
-            color: #ff3300;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        .footer-links a:hover {
-            color: #ffee00;
-            text-decoration: underline;
-        }
+        /* === PIE DE PÁGINA (FOOTER) === */
+        footer { text-align: center; margin-top: 50px; padding: 30px 20px; background: #111; border-top: 4px solid #ff3300; color: #bbb; font-size: 0.9rem; }
+        footer strong { color: #ffee00; }
+        footer p { margin-bottom: 8px; }
+        .footer-links { margin-top: 15px; color: #ff3300; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <!-- Encabezado -->
+    <!-- ================= ENCABEZADO Y MENU ================= -->
     <header>
         <div class="logo">Fuggler</div>
         <br>
         <div class="tagline">Funny ugly monster</div>
         
-        <!-- Barra de Navegación con enlaces de anclaje -->
+        <!-- Enlaces internos a las secciones de la página -->
         <nav>
             <ul>
                 <li><a href="#coleccion-completa">Colección Completa</a></li>
                 <li><a href="#monstruos-inadaptados">Monstruos Inadaptados</a></li>
                 <li><a href="#mascotas-feas">Mascotas Feas</a></li>
-                <li><a href="#coleccion-nueva">Colección Nueva</a></li>
+                <li><a href="#colecciones-especiales">Colecciones Especiales</a></li>
+                <li><a href="#formulario-compra">¡Adoptar / Comprar!</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
 
-        <!-- SECCIÓN: Colección Completa -->
+        <!-- ================= SECCIÓN 1: COLECCIÓN COMPLETA ================= -->
         <section id="coleccion-completa" class="section-block">
             <h2 class="section-title">Colección Completa</h2>
             <div class="container">
@@ -284,11 +159,11 @@
                     <img src="fuggler4.jpg" alt="Oogah Boogah">
                     <h2>Oogah Boogah</h2>
                     <span class="series">Serie: Originals</span>
-                    <p class="desc"> Era el disfraz perfecto para escapar del laboratorio y empezar a causar estragos en la población completamente desprevenida.</p>
+                    <p class="desc">Era el disfraz perfecto para escapar del laboratorio y empezar a causar estragos en la población completamente desprevenida.</p>
                     <div class="stats">
                         <div>Número: <span>53</span></div>
-                        <div>Pelaje: <span>Arcoíris de pelo largo/span></div>
-                        <div>Velocidad de pedo: <span>Humedo</span></div>
+                        <div>Pelaje: <span>Arcoíris de pelo largo</span></div>
+                        <div>Velocidad de pedo: <span>Húmedo</span></div>
                         <div>Consistencia de Flema: <span>Espesa</span></div>
                     </div>
                 </div>
@@ -297,51 +172,48 @@
                     <img src="fuggler5.jpg" alt="Shameless Goof">
                     <h2>Shameless Goof</h2>
                     <span class="series">Serie: Baby Fugg</span>
-                    <p class="desc"> Te lanzará una sonrisa pícara y te mostrará su único mosqueteador antes de desaparecer en el espacio más pequeño, para infiltrarse en áreas de tu vida que ni siquiera sabías que existían, dejando un rastro de caos a su paso. Prepárate para las mega travesuras que traen estas micro amenazas.</p>
+                    <p class="desc">Te lanzará una sonrisa pícara y te mostrará su único mosqueteador antes de desaparecer en el espacio más pequeño.</p>
                     <div class="stats">
                         <div>Pelaje: <span>Verde de pelo largo</span></div>
                         <div>Velocidad de pedo: <span>Silenciosa pero violenta</span></div>
                         <div>Consistencia de Flema: <span>Gomita</span></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
+                <div class="card">
                     <img src="fuggler6.jpg" alt="Squidge">
                     <h2>Squidge</h2>
                     <span class="series">Serie: Inadaptados de Laboratorio</span>
-                    <p class="desc"> Este sinvergüenza tonto fue rociado con manchas de productos químicos por todo su pelaje después de morder las tuberías.</p>
+                    <p class="desc">Este sinvergüenza tonto fue rociado con manchas de productos químicos por todo su pelaje después de morder las tuberías.</p>
                     <div class="stats">
                         <div>Número: <span>51</span></div>
                         <div>Pelaje: <span>Vellón moteado morado</span></div>
                         <div>Velocidad de pedo: <span>Sobresagrado</span></div>
-                        <div>Consistencia de Flema: <span>Liquida</span></div>
+                        <div>Consistencia de Flema: <span>Líquida</span></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
+                <div class="card">
                     <img src="fuggler7.jpg" alt="Sir Belch">
                     <h2>Sir Belch</h2>
                     <span class="series">Serie: Inadaptados de Laboratorio</span>
-                    <p class="desc">Los vapores han hecho que esta amenaza parezca psicodélica y hipnótica, pero no te dejes engañar: Está completamente centrada en arruinarte la vida.</p>
+                    <p class="desc">Los vapores han hecho que esta amenaza parezca psicodélica y hipnótica, pero no te dejes engañar.</p>
                     <div class="stats">
                         <div>Número: <span>49</span></div>
                         <div>Pelaje: <span>Forro polar teñido azul</span></div>
                         <div>Velocidad de pedo: <span>Sigilo</span></div>
-                        <div>Consistencia de Flema: <span>Liquida</span></div>
+                        <div>Consistencia de Flema: <span>Líquida</span></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
+                <div class="card">
                     <img src="fuggler8.jpg" alt="Munch Munch">
                     <h2>Munch Munch</h2>
                     <span class="series">Serie: Inadaptados de Laboratorio</span>
-                    <p class="desc">Este bicho raro está programado para causar caos. Solo tienes que mirar a sus pequeños ojos y verás que no hay pensamientos en esa cabeza, solo caos.</p>
+                    <p class="desc">Este bicho raro está programado para causar caos. Solo tienes que mirar a sus pequeños ojos y verás que no hay pensamientos en esa cabeza.</p>
                     <div class="stats">
                         <div>Número: <span>48</span></div>
-                        <div>Pelaje: <span>Peluda tipo Tiee Dye</span></div>
+                        <div>Pelaje: <span>Peluda tipo Tie Dye</span></div>
                         <div>Velocidad de pedo: <span>Tornado</span></div>
                         <div>Consistencia de Flema: <span>Gomita</span></div>
                     </div>
@@ -349,7 +221,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: Monstruos Inadaptados -->
+        <!-- ================= SECCIÓN 2: MONSTRUOS INADAPTADOS ================= -->
         <section id="monstruos-inadaptados" class="section-block">
             <h2 class="section-title">Monstruos Inadaptados</h2>
             <div class="container">
@@ -357,12 +229,12 @@
                     <img src="fuggler1.jpg" alt="Gaptooth Weirdo">
                     <h2>Gaptooth Weirdo</h2>
                     <span class="series">Serie: Monstruos Inadaptados</span>
-                    <p class="desc"> Es un terrible duende del caos que vive para las travesuras y el caos, así que no te dejes engañar por el ojo abierto, el pelaje esponjoso y la sonrisa llena de dientes.</p>
+                    <p class="desc">Es un terrible duende del caos que vive para las travesuras y el caos, así que no te dejes engañar por el ojo abierto.</p>
                     <div class="stats">
                         <div>Número: <span>185</span></div>
                         <div>Pelaje: <span>Lila/Borgoña</span></div>
-                        <div>Velocidad de pedo: <span>Rafaga</span></div>
-                        <div>Consistencia de Flema: <span>Humedo</span></div>
+                        <div>Velocidad de pedo: <span>Ráfaga</span></div>
+                        <div>Consistencia de Flema: <span>Húmedo</span></div>
                     </div>
                 </div>
 
@@ -370,7 +242,7 @@
                     <img src="fuggler3.jpg" alt="Mr Screech">
                     <h2>Mr Screech</h2>
                     <span class="series">Serie: Monstruos Inadaptados</span>
-                    <p class="desc">Este Fuggler no pudo elegir su color favorito, así que optó por ambos. Una mezcla de colores drásticos de un Fuggler, vive para crear caos.</p>
+                    <p class="desc">Este Fuggler no pudo elegir su color favorito, así que optó por ambos. Una mezcla de colores drásticos.</p>
                     <div class="stats">
                         <div>Número: <span>186</span></div>
                         <div>Pelaje: <span>Rosa/Azul</span></div>
@@ -383,7 +255,7 @@
                     <img src="fuggler9.jpg" alt="Munch Tooth">
                     <h2>Munch Tooth</h2>
                     <span class="series">Serie: Monstruos Inadaptados</span>
-                    <p class="desc">Un maestro multicolor de traviesas, esta mezcla de verde, amarillo y rosa Fugglers vive para traer color y caos a quien decida hacerse amigo de ella. No te dejes llevar por su cansancio y ojos entrecerrados: está listo, dispuesto y, por desgracia, capaz de hacer un gran desastre.</p>
+                    <p class="desc">Un maestro multicolor de traviesas, esta mezcla de verde, amarillo y rosa Fugglers vive para traer color y caos.</p>
                     <div class="stats">
                         <div>Número: <span>193</span></div>
                         <div>Pelaje: <span>Neon Green/Multi</span></div>
@@ -396,7 +268,7 @@
                     <img src="fuggler10.jpg" alt="Wide Eyed Boogah">
                     <h2>Wide Eyed Boogah</h2>
                     <span class="series">Serie: Monstruos Inadaptados</span>
-                    <p class="desc"></p>
+                    <p class="desc">Mirada fija y desorientada lista para acechar por las noches.</p>
                     <div class="stats">
                         <div>Número: <span>184</span></div>
                         <div>Pelaje: <span>Negro/Blanco</span></div>
@@ -409,25 +281,26 @@
                     <img src="fuggler11.jpg" alt="Grinneroo McGoo">
                     <h2>Grinneroo McGoo</h2>
                     <span class="series">Serie: Monstruos Inadaptados</span>
-                    <p class="desc"> Es una especie de Fuggler verde enfermizo mezclado con un desastre multicolor, y ahí es donde empieza el caos. Podría ser perfectamente el amigo de tus sueños (siempre que sean pesadillas).</p>
+                    <p class="desc">Es una especie de Fuggler verde enfermizo mezclado con un desastre multicolor, y ahí es donde empieza el caos.</p>
                     <div class="stats">
                         <div>Número: <span>191</span></div>
                         <div>Pelaje: <span>Multi/Verde</span></div>
-                        <div>Velocidad de pedo: <span>Rafaga</span></div>
+                        <div>Velocidad de pedo: <span>Ráfaga</span></div>
                         <div>Consistencia de Flema: <span>Grueso</span></div>
                     </div>
                 </div>
+            </div>
         </section>
 
-        <!-- SECCIÓN: Mascotas Feas -->
+        <!-- ================= SECCIÓN 3: MASCOTAS FEAS ================= -->
         <section id="mascotas-feas" class="section-block">
             <h2 class="section-title">Mascotas Feas</h2>
             <div class="container">
                 <div class="card">
                     <img src="fuggler12.jpg" alt="Cheeky Chunky">
                     <h2>Cheeky Chunky</h2>
-                    <span class="series">Serie:Mascotas Feas </span>
-                    <p class="desc">Un Fuggler multicolor y diabólico, no desea nada más que inyectar una buena dosis de caos en tu vida. Y con su enorme lengua siempre asomando, es casi como si se estuviera burlándose de ti cada vez que la miras.</p>
+                    <span class="series">Serie: Mascotas Feas</span>
+                    <p class="desc">Un Fuggler multicolor y diabólico, no desea nada más que inyectar una buena dosis de caos en tu vida.</p>
                     <div class="stats">
                         <div>Número: <span>173</span></div>
                         <div>Pelaje: <span>Remolino multicolor</span></div>
@@ -435,17 +308,17 @@
                         <div>Consistencia de Flema: <span>Grueso</span></div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <img src="fuggler13.jpg" alt="Reek-O">
                     <h2>Reek-O</h2>
                     <span class="series">Serie: Mascotas Feas</span>
-                    <p class="desc">Este Fuggler trae caos y malestar dondequiera que encuentra una bandeja de arena. Y si no encuentra una bandeja de arena, hará su trabajo igualmente. A diferencia de otros gatos, apenas le importa su higiene personal.</p>
+                    <p class="desc">Este Fuggler trae caos y malestar dondequiera que encuentra una bandeja de arena.</p>
                     <div class="stats">
                         <div>Número: <span>175</span></div>
                         <div>Pelaje: <span>Multicolor</span></div>
                         <div>Velocidad de pedo: <span>Tornado</span></div>
-                        <div>Consistencia de Flema: <span>Humedo</span></div>
+                        <div>Consistencia de Flema: <span>Húmedo</span></div>
                     </div>
                 </div>
 
@@ -453,10 +326,10 @@
                     <img src="fuggler14.jpg" alt="Chezee">
                     <h2>Chezee</h2>
                     <span class="series">Serie: Mascotas Feas</span>
-                    <p class="desc">Este Fuggler salta más de lo que ronronea. Un felino demoníaco que no desea nada más que arrancar tus cortinas, ensuciar la alfombra y rascar, rascar, rascar.</p>
+                    <p class="desc">Este Fuggler salta más de lo que ronronea. Un felino demoníaco que no desea nada más que arrancar tus cortinas.</p>
                     <div class="stats">
                         <div>Número: <span>179</span></div>
-                        <div>Pelaje: <span>Multicolo</span></div>
+                        <div>Pelaje: <span>Multicolor</span></div>
                         <div>Velocidad de pedo: <span>Sobresagrado</span></div>
                         <div>Consistencia de Flema: <span>Lodoso</span></div>
                     </div>
@@ -464,7 +337,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: Colecciones Especiales -->
+        <!-- ================= SECCIÓN 4: COLECCIONES ESPECIALES ================= -->
         <section id="colecciones-especiales" class="section-block">
             <h2 class="section-title">Colecciones Especiales</h2>
             <div class="container">
@@ -472,7 +345,7 @@
                     <img src="fuggler15.jpg" alt="Leonardo">
                     <h2>Leonardo</h2>
                     <span class="series">Serie: Colección Especial</span>
-                    <p class="desc"> Leonardo está armado con su katana listo para luchar contra el mal junto a sus tres hermanos.  Normalmente se le puede encontrar a Leonardo intentando someter a sus hermanos malhechores y no rehúye actuar con la misma picardía para engañarlos y que sigan sus órdenes.</p>
+                    <p class="desc">Leonardo está armado con su katana listo para luchar contra el mal junto a sus tres hermanos.</p>
                     <div class="stats">
                         <div>Colección: <span>Tortugas Ninja</span></div>
                         <div>Pelaje: <span>Fieltro Verde</span></div>
@@ -481,11 +354,11 @@
                     </div>
                 </div>
 
-                  <div class="card">
+                <div class="card">
                     <img src="fuggler16.jpg" alt="Patrick">
                     <h2>Patrick</h2>
                     <span class="series">Serie: Colección Especial</span>
-                    <p class="desc">Esta ingenua estrella de mar rosa tiene un apetito insaciable por las travesuras. Su actitud pausada y relajada desmiente su talento para causar caos, ya sea robando aperitivos o orquestando bromas elaboradas que dejan desconcertados a los transeúntes.</p>
+                    <p class="desc">Esta ingenua estrella de mar rosa tiene un apetito insaciable por las travesuras.</p>
                     <div class="stats">
                         <div>Colección: <span>Bob Esponja</span></div>
                         <div>Pelaje: <span>Tornado</span></div>
@@ -493,17 +366,17 @@
                         <div>Consistencia de Flema: <span>Espesa</span></div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <img src="fuggler17.jpg" alt="Joker">
                     <h2>Joker</h2>
                     <span class="series">Serie: Colección Especial</span>
-                    <p class="desc">Ya sea que esté contando bromas o cometiendo crímenes, querrás vigilar a este monstruo antes de convertirte en su próximo objetivo.</p>
+                    <p class="desc">Ya sea que esté contando bromas o cometiendo crímenes, querrás vigilar a este monstruo.</p>
                     <div class="stats">
                         <div>Colección: <span>DC</span></div>
-                        <div>Pelaje: <span>Vellon Blanco</span></div>
-                        <div>Velocidad de pedo: <span>Trmbon</span></div>
-                        <div>Consistencia de Flema: <span>Liquida</span></div>
+                        <div>Pelaje: <span>Vellón Blanco</span></div>
+                        <div>Velocidad de pedo: <span>Trombón</span></div>
+                        <div>Consistencia de Flema: <span>Líquida</span></div>
                     </div>
                 </div>
 
@@ -511,9 +384,9 @@
                     <img src="fuggler18.jpg" alt="Raya">
                     <h2>Raya</h2>
                     <span class="series">Serie: Colección Especial</span>
-                    <p class="desc">este monstruo pretende causar estragos, pero necesita mantenerse alejado de la luz brillante para continuar su reinado de terror; prefiere gastar sus bromas bajo la cobertura de la oscuridad.</p>
+                    <p class="desc">Este monstruo pretende causar estragos, pero necesita mantenerse alejado de la luz brillante.</p>
                     <div class="stats">
-                        <div>Colección: <span> Gremlin</span></div>
+                        <div>Colección: <span>Gremlin</span></div>
                         <div>Pelaje: <span>Escamas Verdes</span></div>
                         <div>Velocidad de pedo: <span>Tornado</span></div>
                         <div>Consistencia de Flema: <span>Espumoso</span></div>
@@ -524,9 +397,9 @@
                     <img src="fuggler19.jpg" alt="Gollum">
                     <h2>Gollum</h2>
                     <span class="series">Serie: Colección Especial</span>
-                    <p class="desc">Curiosamente para este Fuggler, no tuvo que esforzarse mucho con su atuendo. Sí, con ropa marchita y el pelo ralado, es el guía perfecto para guiarte</p>
+                    <p class="desc">Con ropa marchita y el pelo ralo, es el guía perfecto para guiarte en el caos.</p>
                     <div class="stats">
-                        <div>Colección: <span> El Señor de los Anillos</span></div>
+                        <div>Colección: <span>El Señor de los Anillos</span></div>
                         <div>Pelaje: <span>Beige</span></div>
                         <div>Velocidad de pedo: <span>Sigilo</span></div>
                         <div>Consistencia de Flema: <span>Grueso</span></div>
@@ -537,28 +410,89 @@
                     <img src="fuggler20.jpg" alt="Grin Grin">
                     <h2>Grin Grin</h2>
                     <span class="series">Serie: Colección Especial</span>
-                    <p class="desc"> Es una tortura de la más alta magnitud, infligida por la lentitud deliberada de esta criatura astuta.</p>
+                    <p class="desc">Es una tortura de la más alta magnitud, infligida por la lentitud deliberada de esta criatura astuta.</p>
                     <div class="stats">
-                        <div>Coleccion: Gold Fuggler<span></span></div>
-                        <div>Pelaje: <span>Forro polar dorado y blanco con estampado de leopardo</span></div>
-                        <div>Velocidad de pedo: <span>Huevop Revuelto</span></div>
+                        <div>Colección: <span>Gold Fuggler</span></div>
+                        <div>Pelaje: <span>Forro polar dorado y blanco</span></div>
+                        <div>Velocidad de pedo: <span>Huevo Revuelto</span></div>
                         <div>Consistencia de Flema: <span>Apestoso</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ================= SECCIÓN 5: FORMULARIO DE ADOPCIÓN / COMPRA ================= -->
+        <section id="formulario-compra" class="section-block">
+            <h2 class="section-title">Formulario de Adopción / Compra</h2>
+            <div class="form-container">
+                <form id="compraForm">
+                    <!-- Selección de personaje -->
+                    <div class="form-group">
+                        <label for="fuggler_select">Selecciona tu Fuggler:</label>
+                        <select id="fuggler_select" name="fuggler" required>
+                            <option value="">-- Escoge un monstruo --</option>
+                            <option value="Suspicious Fox">Suspicious Fox</option>
+                            <option value="Oogah Boogah">Oogah Boogah</option>
+                            <option value="Shameless Goof">Shameless Goof</option>
+                            <option value="Squidge">Squidge</option>
+                            <option value="Sir Belch">Sir Belch</option>
+                            <option value="Munch Munch">Munch Munch</option>
+                            <option value="Gaptooth Weirdo">Gaptooth Weirdo</option>
+                            <option value="Mr Screech">Mr Screech</option>
+                            <option value="Munch Tooth">Munch Tooth</option>
+                            <option value="Wide Eyed Boogah">Wide Eyed Boogah</option>
+                            <option value="Grinneroo McGoo">Grinneroo McGoo</option>
+                            <option value="Cheeky Chunky">Cheeky Chunky</option>
+                            <option value="Reek-O">Reek-O</option>
+                            <option value="Chezee">Chezee</option>
+                            <option value="Leonardo">Leonardo</option>
+                            <option value="Patrick">Patrick</option>
+                            <option value="Joker">Joker</option>
+                            <option value="Raya">Raya</option>
+                            <option value="Gollum">Gollum</option>
+                            <option value="Grin Grin">Grin Grin</option>
+                        </select>
+                    </div>
+
+                    <!-- Campos con datos del usuario -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. 6561234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección de Envío:</label>
+                        <textarea id="direccion" name="direccion" rows="3" placeholder="Calle, Número, Colonia, Ciudad..." required></textarea>
+                    </div>
+
+                    <!-- Botón para enviar el formulario -->
+                    <button type="submit" class="btn-compra">¡Comprar Monstruo!</button>
+                </form>
+                
+                <!-- Caja de respuesta después de procesar la solicitud -->
+                <div id="mensaje-resultado"></div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- ================= PIE DE PÁGINA ================= -->
     <footer>
         <p><strong>FUGGLER</strong> &copy; Peluches feos con dientes reales de humano y agujero de botón en el trasero.</p>
         <p>Quiñones Rios Iris Marina 0880 5-J</p>
         <div class="footer-links">
-            <a href="#">Términos y Caos</a> | 
-            <a href="#">Adopciones</a> | 
-            <a href="#">Contacto</a>
+            Términos y Caos | Adopciones | Contacto
         </div>
     </footer>
-
 </body>
 </html>
